@@ -1,0 +1,7 @@
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:1.12.0-ffmpeg
+    ports:
+      - "1935:1935"
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml

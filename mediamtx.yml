@@ -1,0 +1,11 @@
+paths:
+  # Input path: Dual HD 2640
+  dualhd2640:
+    runOnReady: 'ffmpeg -i rtmp://localhost:1935/dualhd2640
+                        -filter_complex "[0:v]crop=1920:1080:0:0[horizontal]; [0:v]crop=720:1280:1920:0[vertical]"
+                        -map "[horizontal]" -c:v libx264 -preset veryfast -c:a copy -f flv rtmp://mediamtx:1935/horizontal
+                        -map "[vertical]" -c:v libx264 -preset veryfast -c:a copy -f flv rtmp://mediamtx:1935/vertical'
+
+  # Output paths
+  horizontal:
+  vertical:
